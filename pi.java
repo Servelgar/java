@@ -23,23 +23,22 @@ import java.util.stream.Stream;
 import us.lsi.common.Files2;
 import us.lsi.common.Streams2;
 
-//Correo profesora practica: anabsanchez@us.es
-//Despacho provisional I0.63
+
 public class pi {
 
 	public static void main(String[] args) throws IOException, ParseException {
-		
+		// Probando las funciones
 		FileReader f = new FileReader("src/imagenes/fichero.txt");
 		FileReader f2 = new FileReader("src/imagenes/fich.txt");
-     	//System.out.println(fechaOrdenada(f, LocalDate.of(2003, 10, 1) , LocalDate.now()));
-     	//System.out.println(fechaOrdenada2(f,LocalDate.of(1990, 01, 10), LocalDate.now()));
-        System.out.println(fechaOrdenadaStream(f, LocalDate.of(1990, 01, 10),  LocalDate.now()));
-		//System.out.println(listNumEntero(f2));
+     		System.out.println(fechaOrdenada(f, LocalDate.of(2003, 10, 1) , LocalDate.now()));
+     		System.out.println(fechaOrdenada2(f,LocalDate.of(1990, 01, 10), LocalDate.now()));
+		System.out.println(listNumEntero(f2));
 		System.out.println(listNumEnteroStream(f2));
-		//System.out.println(ListaFechasOrd(f));
-		
 	}
-	//Función auxiliar
+	//Dado un fichero de texto con una fecha escrita en cada lÃ­nea, genere otro fichero con
+	//las fechas ordenadas y que estÃ©n entre dos fechas dadas
+	
+	//FunciÃ³n auxiliar
 	public static List<LocalDate> ListaFechasOrd (FileReader f) throws IOException{
 		List<LocalDate> res = new ArrayList<LocalDate>();
 		BufferedReader br = new BufferedReader(f);
@@ -51,8 +50,7 @@ public class pi {
 		Collections.sort(res);
 		return res;
 	}
-	//Dado un fichero de texto con una fecha escrita en cada línea, genere otro fichero con
-	//las fechas ordenadas y que estén entre dos fechas dadas	
+	// Funcion principal, primera solucion
 	public static BufferedWriter fechaOrdenada (FileReader f, LocalDate d1, LocalDate d2) throws ParseException, IOException {
 		 File fi = new File("src/imagenes/fichero1.txt");
 		 FileWriter w = new FileWriter(fi);
@@ -100,17 +98,10 @@ public class pi {
 		 res.close();
 		return res;
 	}
-
-	//// Version Stream
-	public static  Files2 fechaOrdenadaStream (FileReader f, LocalDate d1, LocalDate d2) throws IOException {
-		List<LocalDate> l2 = entreFechas(f,d1,d2);
-		Stream<LocalDate> l = l2.stream().sorted(Comparator.naturalOrder());
-		
-		return null;
-	} 
-	
 	
 	///////////////////////////////////////////////////////
+	//Obtener una List<Integer> a partir de un fichero de texto que contiene en cada lÃ­nea
+	//una lista de nÃºmeros enteros separados por comas.
 	
 	//Funcion auxiliar
 	public static List<String> mapNumeros (FileReader f) throws IOException{
@@ -125,8 +116,7 @@ public class pi {
 		return map;
 	}
 	
-	//Obtener una List<Integer> a partir de un fichero de texto que contiene en cada línea
-	//una lista de números enteros separados por comas.
+	// Funcion principal
 	public static List<Integer> listNumEntero (FileReader f) throws IOException{
 		List<Integer> res = new ArrayList<Integer>();
 		for(String s : mapNumeros(f)) res.add(Integer.valueOf(s)); 
