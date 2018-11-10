@@ -17,17 +17,15 @@ import us.lsi.common.Files2;
 public class pirecursivo {
 
 	public static void main(String[] args) throws IOException {
+		//Probando las funciones
 		String f = "src/imagenes/fichero.txt";
 		String f2 = "src/imagenes/fich.txt";
-		//List<LocalDate> l = new ArrayList<LocalDate>();
-		// List<String> Lineas = new ArrayList<String>();
-		//Lineas.addAll(Files2.getLines(f));
-		//System.out.println(fechaOrdenadaRec(f,LocalDate.of(1996, 12, 12), LocalDate.now()));
+		System.out.println(fechaOrdenadaRec(f,LocalDate.of(1996, 12, 12), LocalDate.now()));
 		System.out.println(listNumEnteroRec(f2));
 	}
 	
-	//Dado un fichero de texto con una fecha escrita en cada línea, genere otro fichero con
-	//las fechas ordenadas y que estén entre dos fechas dadas	
+	//Dado un fichero de texto con una fecha escrita en cada lÃ­nea, genere otro fichero con
+	//las fechas ordenadas y que estÃ©n entre dos fechas dadas	
 	public static BufferedWriter fechaOrdenadaRec (String f, LocalDate d1, LocalDate d2) throws IOException {
 		 File fi = new File("src/imagenes/fichero1.txt");
 		 FileWriter w = new FileWriter(fi);
@@ -70,8 +68,8 @@ public class pirecursivo {
 		return res;
 	}
 	
-	//Obtener una List<Integer> a partir de un fichero de texto que contiene en cada línea
-	//una lista de números enteros separados por comas.
+	//Obtener una List<Integer> a partir de un fichero de texto que contiene en cada lÃ­nea
+	//una lista de nÃºmeros enteros separados por comas.
 	
 	public static List<Integer> listNumEnteroRec(String f){
 		List<Integer> prov2 = new ArrayList<Integer>();
